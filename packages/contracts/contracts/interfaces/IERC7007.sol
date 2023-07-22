@@ -1,7 +1,7 @@
 pragma solidity ^0.8.18;
 
 // import ERC165 from openzeppelin
-import { IERC165 } "@openzeppelin/contracts/utils/introspection/IERC165.sol";
+import { IERC165 } from "@openzeppelin/contracts/utils/introspection/IERC165.sol";
 
 /**
  * @dev Required interface of an ERC7007 compliant contract.
@@ -23,18 +23,19 @@ interface IERC7007 is IERC165 {
      * - `proof` should not include `aigcData` to save gas.
      */
     function mint(
-        bytes calldata prompt,
-        bytes calldata aigcData,
+        uint256 prompt,
+        uint256 aigcData,
         string calldata uri,
-        bytes calldata proof
+        bytes calldata proof,
+        address to
     ) external returns (uint256 tokenId);
 
     /**
      * @dev Verify the `prompt`, `aigcData` and `proof`.
      */
     function verify(
-        bytes calldata prompt,
-        bytes calldata aigcData,
+        uint256 prompt,
+        uint256 aigcData,
         bytes calldata proof
     ) external view returns (bool success);
 }
