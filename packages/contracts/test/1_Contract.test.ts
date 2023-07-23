@@ -41,5 +41,13 @@ describe('ModelMarket', function () {
     expect(verifier.address).to.not.equal(0);
   });
 
+  it('should deploy new model', async function () {
+    const gmass = await market.deployModel(5, verifier.address);
+  });
+
+  it('should deploy new model', async function () {
+    
+  });
+
 });
 
