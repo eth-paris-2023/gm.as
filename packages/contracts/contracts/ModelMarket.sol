@@ -9,6 +9,7 @@ contract ModelMarket is Ownable {
 
     mapping(address => uint256) public balances;
     mapping(address => uint256) public prices;
+    mapping (address => bool) freeMinted;
 
     constructor() {}
 
@@ -37,6 +38,19 @@ contract ModelMarket is Ownable {
     function delployModel(uint256 price, address verifier) external onlyOwner {
         address newModel = address(new GMASS(verifier));
         prices[newModel] = price;
+    }
+
+
+    function freeMint(
+        address _model, 
+        uint256 promptCommitment,
+        uint256 aigcData,
+        string calldata uri, 
+        bytes calldata proof,
+        address to
+    ) external onlyOwner {
+        freeMinted[to] = true;  
+        GMASS(_model).mint(promptCommitment, aigcData, uri, proof, to);
     }
 
     function mintGMASS(
