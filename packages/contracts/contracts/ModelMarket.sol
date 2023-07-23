@@ -5,7 +5,6 @@ import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 
 
 contract ModelMarket is Ownable {
-    using ECDSA for bytes32;
 
     mapping(address => uint256) public balances;
     mapping(address => uint256) public prices;
@@ -35,7 +34,7 @@ contract ModelMarket is Ownable {
     }
 
 
-    function delployModel(uint256 price, address verifier) external onlyOwner {
+    function deployModel(uint256 price, address verifier) external onlyOwner {
         address newModel = address(new GMASS(verifier));
         prices[newModel] = price;
     }
@@ -63,17 +62,12 @@ contract ModelMarket is Ownable {
         address to
     ) external payable onlyOwner {
         require(balances[to] >= prices[_model], "Insufficient payment");
-        bytes32 _hash = keccak256(abi.encodePacked(promptCommitment));
-        require(to == ECDSA.toEthSignedMessageHash(_hash).recover(signedPrompt));
+        // bytes32 _hash = keccak256(abi.encodePacked(promptCommitment));
+        // require(to == ECDSA.toEthSignedMessageHash(_hash).recover(signedPrompt));
 
         payable(msg.sender).transfer(prices[_model]);
         balances[to] -= prices[_model];
         
         GMASS(_model).mint(promptCommitment, aigcData, uri, proof, to);
     }
-
-
-
-
-
 }

@@ -38,6 +38,10 @@ contract GMASS is Ownable, ERC721, IERC7007 {
         return counter;
     }
 
+    function changeVerifier(address _verifier) external onlyOwner {
+        verifier = _verifier;
+    }
+
     /**
      * @dev Verify the `promptCommitment`, `aigcData` and `proof`.
      */

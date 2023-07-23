@@ -26,7 +26,7 @@ task('new:wallet', 'Generate New Wallet', async (taskArgs, hre) => {
 });
 
 let ACCOUNT;
-let useMnemonic = true;
+let useMnemonic = false;
 
 // Setup Default Values
 let PRIVATE_KEY;
@@ -45,13 +45,13 @@ if (process.env.PRIVATE_KEY_TESTNET) {
   PRIVATE_KEY_TESTNET = ethers.Wallet.createRandom()._signingKey().privateKey;
 }
 
-if (!process.env.INFURA_API_KEY) {
-  console.log('⚠️ Please set INFURA_API_KEY in the .env file');
-}
+// if (!process.env.INFURA_API_KEY) {
+//   console.log('⚠️ Please set INFURA_API_KEY in the .env file');
+// }
 
-if (!process.env.ETHERSCAN_API_KEY) {
-  console.log('⚠️ Please set ETHERSCAN_API_KEY in the .env file');
-}
+// if (!process.env.ETHERSCAN_API_KEY) {
+//   console.log('⚠️ Please set ETHERSCAN_API_KEY in the .env file');
+// }
 
 if (useMnemonic) {
   let MNEMONIC;
@@ -116,7 +116,7 @@ module.exports = {
       accounts: ACCOUNT,
     },
     mumbai: {
-      url: 'https://matic-mumbai.chainstacklabs.com',
+      url: 'https://polygon-mumbai-bor.publicnode.com',
       chainId: 80001,
       accounts: ACCOUNT,
       saveDeployments: true,
@@ -197,6 +197,12 @@ module.exports = {
     gnosis_testnet: {
       url: 'https://rpc.chiadochain.net',
       chainId: 10200,
+      accounts: ACCOUNT,
+      saveDeployments: true,
+    },
+    linea_testnet: {
+      url: 'https://rpc.goerli.linea.build',
+      chainId: 59140,
       accounts: ACCOUNT,
       saveDeployments: true,
     },
