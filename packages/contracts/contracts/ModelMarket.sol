@@ -17,8 +17,7 @@ contract ModelMarket is Ownable {
     WorldID public immutable worldId;
 
     constructor(address _worldId, string memory _appId, string memory _actionId) {
-        IWorldId worldId = new IWorldID(_worldId);
-		worldId = new WorldID(worldId, _appId, _actionId);
+		worldId = new WorldID(IWorldID(_worldId), _appId, _actionId);
 	}
 
     /**
@@ -43,9 +42,26 @@ contract ModelMarket is Ownable {
     }
 
 
-    function delployModel(uint256 price, address verifier) external onlyOwner {
+    function deployModel(uint256 price, address verifier) external onlyOwner returns (address){
         address newModel = address(new GMASS(verifier));
         prices[newModel] = price;
+        return newModel;
+    }
+
+    function freeMint(
+        address _model, 
+        uint256 promptCommitment,
+        uint256 aigcData,
+        string calldata uri, 
+        bytes calldata proof,
+        address to,
+        // world ID
+        uint256 root, 
+        uint256 nullifierHash, 
+        uint256[8] calldata worldId_proof
+    ) external onlyOwner {
+        worldId.verify(to, root, nullifierHash, worldId_proof );
+        GMASS(_model).mint(promptCommitment, aigcData, uri, proof, to);
     }
 
     function mintGMASS(
