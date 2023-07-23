@@ -1,6 +1,10 @@
 pragma solidity ^0.8.18;
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 import {GMASS} from "./GMASS.sol";
+import {WorldID} from "./WorldID.sol";
+import { IWorldID } from './interfaces/IWorldID.sol';
+
+
 import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 
 
@@ -10,7 +14,12 @@ contract ModelMarket is Ownable {
     mapping(address => uint256) public balances;
     mapping(address => uint256) public prices;
 
-    constructor() {}
+    WorldID public immutable worldId;
+
+    constructor(address _worldId, string memory _appId, string memory _actionId) {
+        IWorldId worldId = new IWorldID(_worldId);
+		worldId = new WorldID(worldId, _appId, _actionId);
+	}
 
     /**
      * @dev Deposit ETH to the contract
