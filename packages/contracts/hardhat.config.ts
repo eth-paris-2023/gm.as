@@ -26,7 +26,7 @@ task('new:wallet', 'Generate New Wallet', async (taskArgs, hre) => {
 });
 
 let ACCOUNT;
-let useMnemonic = true;
+let useMnemonic = false;
 
 // Setup Default Values
 let PRIVATE_KEY;
@@ -116,7 +116,7 @@ module.exports = {
       accounts: ACCOUNT,
     },
     mumbai: {
-      url: 'https://matic-mumbai.chainstacklabs.com',
+      url: 'https://fabled-newest-putty.matic-testnet.discover.quiknode.pro/b8eb4c924cd4859651984da96c3c9f61135cd2c1/',
       chainId: 80001,
       accounts: ACCOUNT,
       saveDeployments: true,

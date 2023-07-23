@@ -1,0 +1,81 @@
+{
+  "address": "0x68B2dE54FAe6E9B0EeA78b886AEd4Bd0a0Ee2699",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "pubInputs",
+          "type": "uint256[]"
+        },
+        {
+          "internalType": "bytes",
+          "name": "proof",
+          "type": "bytes"
+        }
+      ],
+      "name": "verify",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x9b85c39d0124ce044512524a19790b69f3e2fcde959d0a366703cf185afcbc27",
+  "receipt": {
+    "to": null,
+    "from": "0xF93398B7881610eCfC71D5eb794BAa696d8f3Eb3",
+    "contractAddress": "0x68B2dE54FAe6E9B0EeA78b886AEd4Bd0a0Ee2699",
+    "transactionIndex": 16,
+    "gasUsed": "127297",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000800000000000000000000100000000004800000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000000080000000000000000000200000000000000000000000000000000000800100000000000000000000004000000000000000000001000000000000000000000000000000100040000000000000000000000000000000000000000000000000000000000000000000100000",
+    "blockHash": "0x2c0ff3f1b421fb19ee8eb8e2688e854220a86f873f4b1107b89289d90bf5b33b",
+    "transactionHash": "0x9b85c39d0124ce044512524a19790b69f3e2fcde959d0a366703cf185afcbc27",
+    "logs": [
+      {
+        "transactionIndex": 16,
+        "blockNumber": 38213911,
+        "transactionHash": "0x9b85c39d0124ce044512524a19790b69f3e2fcde959d0a366703cf185afcbc27",
+        "address": "0x0000000000000000000000000000000000001010",
+        "topics": [
+          "0x4dfe1bbbcf077ddc3e01291eea2d5c70c2b422b415d95645b9adcfd678cb1d63",
+          "0x0000000000000000000000000000000000000000000000000000000000001010",
+          "0x000000000000000000000000f93398b7881610ecfc71d5eb794baa696d8f3eb3",
+          "0x000000000000000000000000be188d6641e8b680743a4815dfa0f6208038960f"
+        ],
+        "data": "0x00000000000000000000000000000000000000000000000000010b71437b8ab100000000000000000000000000000000000000000000000002af1096a041660000000000000000000000000000000000000000000000334626f77f8d2aeead5800000000000000000000000000000000000000000000000002ae05255cc5db4f00000000000000000000000000000000000000000000334626f88afe6e6a3809",
+        "logIndex": 74,
+        "blockHash": "0x2c0ff3f1b421fb19ee8eb8e2688e854220a86f873f4b1107b89289d90bf5b33b"
+      }
+    ],
+    "blockNumber": 38213911,
+    "cumulativeGasUsed": "1706042",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "ece13a6487c57c80cbf15082d3917a96",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.18+commit.87f61d96\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256[]\",\"name\":\"pubInputs\",\"type\":\"uint256[]\"},{\"internalType\":\"bytes\",\"name\":\"proof\",\"type\":\"bytes\"}],\"name\":\"verify\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/VerifierBase.sol\":\"Verifier\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":forge-std/=lib/forge-std/src/\"]},\"sources\":{\"contracts/VerifierBase.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.17;\\n\\ncontract Verifier {\\n    function verify(\\n        uint256[] calldata pubInputs,\\n        bytes calldata proof\\n    ) public view returns (bool) {\\n        bool success = true;\\n        bytes32[] memory transcript;\\n        assembly { /* This is where the proof verification happens*/ }\\n        return success;\\n    }\\n}\\n\",\"keccak256\":\"0xba012bc1fd7bc102582c0e7c789077369443cbca3acce7d290f8ddcad6112288\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50610157806100206000396000f3fe608060405234801561001057600080fd5b506004361061002b5760003560e01c8063bd205a9014610030575b600080fd5b61004861003e36600461005c565b6001949350505050565b604051901515815260200160405180910390f35b6000806000806040858703121561007257600080fd5b843567ffffffffffffffff8082111561008a57600080fd5b818701915087601f83011261009e57600080fd5b8135818111156100ad57600080fd5b8860208260051b85010111156100c257600080fd5b6020928301965094509086013590808211156100dd57600080fd5b818701915087601f8301126100f157600080fd5b81358181111561010057600080fd5b88602082850101111561011257600080fd5b9598949750506020019450505056fea26469706673582212208190782b43a332aa527f2aae9276daa348ff7576f27e3c2524ccf9d0593572e764736f6c63430008120033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061002b5760003560e01c8063bd205a9014610030575b600080fd5b61004861003e36600461005c565b6001949350505050565b604051901515815260200160405180910390f35b6000806000806040858703121561007257600080fd5b843567ffffffffffffffff8082111561008a57600080fd5b818701915087601f83011261009e57600080fd5b8135818111156100ad57600080fd5b8860208260051b85010111156100c257600080fd5b6020928301965094509086013590808211156100dd57600080fd5b818701915087601f8301126100f157600080fd5b81358181111561010057600080fd5b88602082850101111561011257600080fd5b9598949750506020019450505056fea26469706673582212208190782b43a332aa527f2aae9276daa348ff7576f27e3c2524ccf9d0593572e764736f6c63430008120033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [],
+    "types": null
+  }
+}

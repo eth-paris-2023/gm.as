@@ -4,6 +4,8 @@ import { BigNumber, BigNumberish, Contract } from 'ethers';
 import { deployments, ethers } from 'hardhat';
 
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/signers';
+import { IDKitWidget } from '@worldcoin/dkit';
+
 import { ModelMarket } from '../typechain';
 import { expect } from 'chai';
 import { Verifier } from '../typechain/contracts/VerifierBase.sol';
@@ -45,8 +47,9 @@ describe('ModelMarket', function () {
     const gmass = await market.deployModel(5, verifier.address);
   });
 
-  it('should deploy new model', async function () {
-    
+  it('should free mint', async function () {
+    const root =  
+    expect(await market.freeMint(user1.address)).to.equal(0);
   });
 
 });

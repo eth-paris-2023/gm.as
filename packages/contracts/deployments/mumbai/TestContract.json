@@ -1,0 +1,143 @@
+{
+  "address": "0x7F862De87715902BA65e9BfCD587AF931C93E7C2",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "balances",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "deposit",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_user",
+          "type": "address"
+        }
+      ],
+      "name": "getBalance",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "withdraw",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x43b624d12ac82348eddd25501072abd1a556a39736fdb060e1141bf19bc65355",
+  "receipt": {
+    "to": null,
+    "from": "0xF93398B7881610eCfC71D5eb794BAa696d8f3Eb3",
+    "contractAddress": "0x7F862De87715902BA65e9BfCD587AF931C93E7C2",
+    "transactionIndex": 3,
+    "gasUsed": "153409",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000800000000000000000000100000000004800000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000000080000000000000000000200000000000000000000000000000000000800100000000000000000000004000000000000000000001000000000000000000000000000000100040000000000000000000000000000000000000000000000000000000000000000000100000",
+    "blockHash": "0x723f167cfa05fbb783eb2504059ad40dcb9fc2793a0e57219385d0c05ebb9691",
+    "transactionHash": "0x43b624d12ac82348eddd25501072abd1a556a39736fdb060e1141bf19bc65355",
+    "logs": [
+      {
+        "transactionIndex": 3,
+        "blockNumber": 38213906,
+        "transactionHash": "0x43b624d12ac82348eddd25501072abd1a556a39736fdb060e1141bf19bc65355",
+        "address": "0x0000000000000000000000000000000000001010",
+        "topics": [
+          "0x4dfe1bbbcf077ddc3e01291eea2d5c70c2b422b415d95645b9adcfd678cb1d63",
+          "0x0000000000000000000000000000000000000000000000000000000000001010",
+          "0x000000000000000000000000f93398b7881610ecfc71d5eb794baa696d8f3eb3",
+          "0x000000000000000000000000be188d6641e8b680743a4815dfa0f6208038960f"
+        ],
+        "data": "0x000000000000000000000000000000000000000000000000000171bd8994cdb100000000000000000000000000000000000000000000000002c68af0bb14000000000000000000000000000000000000000000000000334625dc846dcca3d03900000000000000000000000000000000000000000000000002c51933317f324f00000000000000000000000000000000000000000000334625ddf62b56389dea",
+        "logIndex": 14,
+        "blockHash": "0x723f167cfa05fbb783eb2504059ad40dcb9fc2793a0e57219385d0c05ebb9691"
+      }
+    ],
+    "blockNumber": 38213906,
+    "cumulativeGasUsed": "477514",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "ece13a6487c57c80cbf15082d3917a96",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.18+commit.87f61d96\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"balances\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"deposit\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_user\",\"type\":\"address\"}],\"name\":\"getBalance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"withdraw\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"deposit()\":{\"details\":\"Deposit ETH to the contract\"},\"withdraw()\":{\"details\":\"Withdraw ETH from the contract\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/TestContract.sol\":\"TestContract\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":forge-std/=lib/forge-std/src/\"]},\"sources\":{\"contracts/TestContract.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\npragma solidity ^0.8.12;\\n\\ncontract TestContract {\\n    mapping(address => uint256) public balances;\\n\\n    /**\\n     * @dev Deposit ETH to the contract\\n     */\\n    function deposit() external payable {\\n        balances[msg.sender] += msg.value;\\n    }\\n\\n    /**\\n     * @dev Withdraw ETH from the contract\\n     */\\n    function withdraw() external {\\n        // require(balances[msg.sender] > 0, \\\"Insufficient balance\\\");\\n        uint256 balance = balances[msg.sender];\\n        balances[msg.sender] = 0;\\n        payable(msg.sender).transfer(balance);\\n    }\\n\\n    function getBalance(address _user) external view returns (uint256) {\\n        return balances[_user];\\n    }\\n}\\n\",\"keccak256\":\"0x7b9b1f538a58bd5d00019c4c6cf492a00332f62bf21b9f12564e591a74644451\",\"license\":\"GPL-3.0\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b506101d0806100206000396000f3fe60806040526004361061003f5760003560e01c806327e235e3146100445780633ccfd60b14610083578063d0e30db01461009a578063f8b2cb4f146100a2575b600080fd5b34801561005057600080fd5b5061007161005f366004610143565b60006020819052908152604090205481565b60405190815260200160405180910390f35b34801561008f57600080fd5b506100986100d8565b005b61009861011d565b3480156100ae57600080fd5b506100716100bd366004610143565b6001600160a01b031660009081526020819052604090205490565b33600081815260208190526040808220805490839055905190929183156108fc02918491818181858888f19350505050158015610119573d6000803e3d6000fd5b5050565b336000908152602081905260408120805434929061013c908490610173565b9091555050565b60006020828403121561015557600080fd5b81356001600160a01b038116811461016c57600080fd5b9392505050565b8082018082111561019457634e487b7160e01b600052601160045260246000fd5b9291505056fea264697066735822122066c1783d94f917d9606858beee15a2c9badab91e60192b0a3e297fbe990e92e064736f6c63430008120033",
+  "deployedBytecode": "0x60806040526004361061003f5760003560e01c806327e235e3146100445780633ccfd60b14610083578063d0e30db01461009a578063f8b2cb4f146100a2575b600080fd5b34801561005057600080fd5b5061007161005f366004610143565b60006020819052908152604090205481565b60405190815260200160405180910390f35b34801561008f57600080fd5b506100986100d8565b005b61009861011d565b3480156100ae57600080fd5b506100716100bd366004610143565b6001600160a01b031660009081526020819052604090205490565b33600081815260208190526040808220805490839055905190929183156108fc02918491818181858888f19350505050158015610119573d6000803e3d6000fd5b5050565b336000908152602081905260408120805434929061013c908490610173565b9091555050565b60006020828403121561015557600080fd5b81356001600160a01b038116811461016c57600080fd5b9392505050565b8082018082111561019457634e487b7160e01b600052601160045260246000fd5b9291505056fea264697066735822122066c1783d94f917d9606858beee15a2c9badab91e60192b0a3e297fbe990e92e064736f6c63430008120033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "deposit()": {
+        "details": "Deposit ETH to the contract"
+      },
+      "withdraw()": {
+        "details": "Withdraw ETH from the contract"
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 3500,
+        "contract": "contracts/TestContract.sol:TestContract",
+        "label": "balances",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_mapping(t_address,t_uint256)"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_mapping(t_address,t_uint256)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => uint256)",
+        "numberOfBytes": "32",
+        "value": "t_uint256"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}
